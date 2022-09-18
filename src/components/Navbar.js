@@ -11,9 +11,9 @@ class linkNav {
 }
 
 const linksNav = [
-  new linkNav("Inicio", "/", "<ItemListContainer/>"),
-  new linkNav("Productos"),
-  new linkNav("Contacto", "/test", "</TEST>"),
+  new linkNav("Inicio", "/"),
+  new linkNav("Productos", "/productos"),
+  new linkNav("Contacto", "/test"),
 ];
 
 const NavBar = () => {

@@ -6,15 +6,15 @@ import { useEffect, useState } from "react";
 import { printProd } from "./Apis";
 
 function ItemList() {
-  const [p, setp] = useState([]);
+  const [k, setk] = useState([]);
 
   useEffect(() => {
-    setp(printProd());
+    setk(printProd());
   }, []);
 
   return (
     <div>
-      {p.map((ele, id) => (
+      {k.map((ele, id) => (
         <Item product={ele} key={`item${id++}`} id={`item${id++}`} />
       ))}
     </div>
