@@ -7,13 +7,21 @@ import LayoutItemListContainer from "./LayoutItemListContainer";
 
 import ItemList from "../components/ItemList";
 
-const Router = () => (
+const filteredList = (arr, fil) => arr.filter((ele) => ele.category === fil);
+
+const Router = ({ p }) => (
   <BrowserRouter>
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<ItemListContainer />} />
+        <Route index element={<ItemListContainer p={p} />} />
         <Route path="/productos" element={<LayoutItemListContainer />}>
-          <Route path="todos" element={<ItemList />} />
+          <Route path="todos" element={<ItemList p={p} />} />
+          <Route path="smartphones" element={<ItemList p={p} />} />
+          <Route path="laptops" element={<ItemList p={p} />} />
+          <Route path="fragances" element={<ItemList p={p} />} />
+          <Route path="skincare" element={<ItemList p={p} />} />
+          <Route path="groceries" element={<ItemList p={p} />} />
+          <Route path="home-decoration" element={<ItemList p={p} />} />
         </Route>
 
         <Route path="/test" element={<TEST />} />

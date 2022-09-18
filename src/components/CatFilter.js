@@ -14,7 +14,9 @@ const CatFilter = ({ category, id }) => {
     <button id={id}>
       <NavLink
         to={`/productos/${category}`}
-        element={`${(<ItemList p={p} />)}`}
+        element={`${(
+          <ItemList p={p.filter((ele) => ele.category == "laptops")} />
+        )}`}
       >
         {category}
       </NavLink>

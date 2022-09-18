@@ -1,6 +1,5 @@
 import CartWidget from "./CartWidget";
 import { NavLink } from "react-router-dom";
-import ItemListContainer from "../pages/ItemListContainer";
 
 class linkNav {
   constructor(title, route, routeElement) {
