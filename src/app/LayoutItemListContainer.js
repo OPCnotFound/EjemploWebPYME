@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import ItemCateg from "../components/ItemCateg";
 
-const LayoutItemListContainer = () => {
+const LayoutItemListContainer = ({ p, cat }) => {
   return (
     <div>
-      <ItemCateg />
+      <ItemCateg cat={cat} />
       <Outlet />
     </div>
   );

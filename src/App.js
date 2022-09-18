@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import Router from "./app/Router";
-import { printProd } from "./components/Apis";
+import { getCat, printProd } from "./components/Apis";
 
 function App() {
-  console.clear();
-
-  const [p, setp] = useState([]);
+  const [productos, setProductos] = useState([]);
+  const [catProduct, setcatProduct] = useState([]);
 
   useEffect(() => {
-    setp(printProd());
+    console.clear();
+    setProductos(printProd());
+    const cat = getCat(printProd());
+    cat.unshift("Todos");
+    setcatProduct(cat);
   }, []);
 
   return (
     <div>
-      <Router p={p} />
+      <Router p={productos} cat={catProduct} />
     </div>
   );
 }

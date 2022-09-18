@@ -1,11 +1,11 @@
 import ItemCateg from "../components/ItemCateg";
 import ItemList from "../components/ItemList";
 
-function ItemListContainer({ p }) {
+function ItemListContainer({ p, cat }) {
   return (
     <div>
-      <ItemCateg />
-      <ItemList p={p} />
+      <ItemCateg cat={cat} />
+      <ItemList p={p} cat={cat} />
     </div>
   );
 }
