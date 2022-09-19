@@ -5,6 +5,7 @@ import TEST from "../pages/TEST";
 import Layout from "./Layout";
 import LayoutItemListContainer from "./LayoutItemListContainer";
 import ItemList from "../components/ItemList";
+import ItemDetailContainer from "../pages/ItemDetailContainer";
 
 const Router = ({ p, cat }) => (
   <BrowserRouter>
@@ -19,6 +20,7 @@ const Router = ({ p, cat }) => (
             <Route path={ele} element={<ItemList p={p} filter={ele} />} />
           ))}
           ;
+          <Route path=":id" element={<ItemDetailContainer p={p} />} />
         </Route>
 
         <Route path="/test" element={<TEST p={p} cat={cat} />} />
