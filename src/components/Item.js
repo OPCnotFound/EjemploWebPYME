@@ -1,8 +1,8 @@
 import React from "react";
 
-function Item({ product, i }) {
+function Item({ product, key, id }) {
   return (
-    <div key={i}>
+    <div key={key} id={id}>
       <div>
         <img src={product.images[0]} alt="" />
       </div>

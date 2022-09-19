@@ -13,8 +13,6 @@ function ItemList({ p, filter }) {
     }
   }, [filter]);
 
-  console.log(filter);
-
   return (
     <div>
       {pFiltered.map((ele, id) => (

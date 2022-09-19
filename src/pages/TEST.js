@@ -1,5 +1,3 @@
-import { getCat, printProd } from "../components/Apis";
-
 const TEST = ({ p, cat }) => {
   console.log(p);
   console.log(cat);

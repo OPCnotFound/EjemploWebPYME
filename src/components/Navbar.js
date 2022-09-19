@@ -11,7 +11,7 @@ class linkNav {
 
 const linksNav = [
   new linkNav("Inicio", "/"),
-  new linkNav("Productos", "/productos"),
+  new linkNav("Productos", "/productos/todos"),
   new linkNav("Contacto", "/test"),
 ];
 

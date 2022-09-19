@@ -6,8 +6,6 @@ import Layout from "./Layout";
 import LayoutItemListContainer from "./LayoutItemListContainer";
 import ItemList from "../components/ItemList";
 
-/* const filteredList = (arr, fil) => arr.filter((ele) => ele.category === fil); */
-
 const Router = ({ p, cat }) => (
   <BrowserRouter>
     <Routes>
