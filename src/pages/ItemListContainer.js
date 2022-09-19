@@ -5,7 +5,7 @@ function ItemListContainer({ p, cat }) {
   return (
     <div>
       <ItemCateg cat={cat} />
-      <ItemList p={p} cat={cat} />
+      <ItemList p={p} filter={undefined} />
     </div>
   );
 }

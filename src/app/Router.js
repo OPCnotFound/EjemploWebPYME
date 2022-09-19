@@ -17,16 +17,10 @@ const Router = ({ p, cat }) => (
           path="/productos"
           element={<LayoutItemListContainer p={p} cat={cat} />}
         >
-          <Route path="todos" element={<ItemList p={p} />} />
-          <Route
-            path="smartphones"
-            element={<ItemList p={p} filter="smartphones" />}
-          />
-          <Route path="laptops" element={<ItemList p={p} filter="laptops" />} />
-          <Route path="fragances" element={<ItemList p={p} />} />
-          <Route path="skincare" element={<ItemList p={p} />} />
-          <Route path="groceries" element={<ItemList p={p} />} />
-          <Route path="home-decoration" element={<ItemList p={p} />} />
+          {cat.map((ele) => (
+            <Route path={ele} element={<ItemList p={p} filter={ele} />} />
+          ))}
+          ;
         </Route>
 
         <Route path="/test" element={<TEST p={p} cat={cat} />} />

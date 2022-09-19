@@ -5,13 +5,11 @@ function ItemList({ p, filter }) {
   const [pFiltered, setpFiltered] = useState([]);
 
   useEffect(() => {
-    if (filter === undefined) {
+    if (filter === undefined || filter === "Todos") {
       setpFiltered(p);
     } else {
       const fil = p.filter((ele) => ele.category === filter);
-      console.log(fil);
       setpFiltered(fil);
-      console.log(pFiltered);
     }
   }, [filter]);
 

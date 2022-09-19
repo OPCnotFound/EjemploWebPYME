@@ -4,7 +4,7 @@ import ItemCateg from "../components/ItemCateg";
 const LayoutItemListContainer = ({ p, cat }) => {
   return (
     <div>
-      <ItemCateg cat={cat} />
+      <ItemCateg p={p} cat={cat} />
       <Outlet />
     </div>
   );

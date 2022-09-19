@@ -13,3 +13,7 @@ const TEST = ({ p, cat }) => {
 };
 
 export default TEST;
+
+/* 
+<Route path="smartphones" element={<ItemList p={p} filter="smartphones" />} />;
+ */

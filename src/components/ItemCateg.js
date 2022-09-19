@@ -2,7 +2,7 @@ import React from "react";
 import { getCat, printProd } from "./Apis";
 import CatFilter from "./CatFilter";
 
-const ItemCateg = ({ cat }) => {
+const ItemCateg = ({ p, cat }) => {
   return (
     <div>
       {cat.map((ele, id) => (
