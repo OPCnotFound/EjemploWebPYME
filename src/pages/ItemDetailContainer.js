@@ -10,7 +10,7 @@ function ItemDetailContainer({ p }) {
 
   useEffect(() => {
     setproduct(p[index]);
-  }, [index]);
+  }, []);
 
   return (
     <div>

@@ -5,7 +5,7 @@ function Item({ product, key, id }) {
   return (
     <div key={key} id={id}>
       <div>
-        <img src={product.images[0]} alt="" />
+        <img src={product.thumbnail} alt="" />
       </div>
       <div>
         <h3>{product.title}</h3>

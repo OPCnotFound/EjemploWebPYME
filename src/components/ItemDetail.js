@@ -7,10 +7,10 @@ function ItemDetail({ product }) {
       <p>{product.title}</p>
       <div>
         <div>
-          <img src="" alt="Imagen de muestra" />
+          <img src="{product.images[1]}" alt="Imagen de muestra" />
         </div>
       </div>
-      <ItemCount stock={5} initial={1} onAdd />
+      <ItemCount stock={product.stock} initial={1} onAdd />
     </div>
   );
 }
