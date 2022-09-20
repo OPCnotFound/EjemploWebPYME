@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Await } from "react-router-dom";
 import Router from "./app/Router";
 import { getCat, printProd } from "./components/Apis";
 
@@ -8,6 +9,7 @@ function App() {
 
   useEffect(() => {
     console.clear();
+
     setProductos(printProd());
     const cat = getCat(printProd());
     cat.unshift("Todos");

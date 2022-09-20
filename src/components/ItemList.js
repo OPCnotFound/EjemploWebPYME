@@ -14,7 +14,7 @@ function ItemList({ p, filter }) {
   }, [filter]);
 
   return (
-    <div>
+    <div className="col-10 row">
       {pFiltered.map((ele, id) => (
         <Item product={ele} key={`item${id++}`} id={`item${id++}`} />
       ))}

@@ -3,7 +3,7 @@ import ItemList from "../components/ItemList";
 
 function ItemListContainer({ p, cat }) {
   return (
-    <div>
+    <div className=" container row " id="ItemListContainer">
       <ItemCateg cat={cat} />
       <ItemList p={p} filter={undefined} />
     </div>

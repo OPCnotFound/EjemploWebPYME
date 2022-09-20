@@ -4,13 +4,10 @@ function CartWidget() {
   const [cartCounter, setCartCounter] = useState(0);
 
   return (
-    <div>
-      <button>
-        <i className="bi bi-cart"></i>
-      </button>
-
+    <button className="nav-link">
+      <i className="bi bi-cart"></i>
       <span>{cartCounter}</span>
-    </div>
+    </button>
   );
 }
 

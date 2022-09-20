@@ -1,5 +1,5 @@
 import CartWidget from "./CartWidget";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 class linkNav {
   constructor(title, route, routeElement) {
@@ -17,20 +17,44 @@ const linksNav = [
 
 const NavBar = () => {
   return (
-    <div>
-      <ul className="nav">
-        {linksNav.map((link, id) => (
-          <li className="nav-link" key={`nav${id++}`}>
-            <NavLink to={link.route} element={link.routeElement}>
-              {link.title}
-            </NavLink>
-          </li>
-        ))}
-        <li className="nav-link">
-          <CartWidget />
-        </li>
-      </ul>
-    </div>
+    <nav className="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <Link to="/">
+          <img
+            src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/store-logo-design-template-3ac57f780d1cae2a6d3a049f82c62437_screen.jpg?ts=1646205211"
+            alt="LOGO"
+            height={"200px"}
+          />
+        </Link>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            {linksNav.map((link, id) => (
+              <li className="nav-item" key={`nav${id++}`}>
+                <NavLink className="nav-link" to={link.route}>
+                  {link.title}
+                </NavLink>
+              </li>
+            ))}
+            <li className="nav-item">
+              <CartWidget />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 export default NavBar;
