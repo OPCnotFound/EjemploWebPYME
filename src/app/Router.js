@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import LayoutItemListContainer from "./LayoutItemListContainer";
 import ItemList from "../components/ItemList";
 import ItemDetailContainer from "../pages/ItemDetailContainer";
+import Cart from "../pages/Cart";
 
 const Router = ({ p, cat }) => (
   <BrowserRouter>
@@ -20,8 +21,9 @@ const Router = ({ p, cat }) => (
             <Route path={ele} element={<ItemList p={p} filter={ele} />} />
           ))}
           ;
-          <Route path=":id" element={<ItemDetailContainer p={p} />} />
+          <Route path=":id" element={<ItemDetailContainer plist={p} />} />
         </Route>
+        <Route path="/cart" element={<Cart />} />
 
         <Route path="/test" element={<TEST p={p} cat={cat} />} />
         <Route path="*" element={<Page404 />} />

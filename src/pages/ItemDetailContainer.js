@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../components/ItemDetail";
 
-function ItemDetailContainer({ p }) {
+function ItemDetailContainer({ plist }) {
   const prodID = parseInt(useParams().id);
-  const index = p.map((ele) => ele.id).indexOf(prodID);
+  const index = plist.map((ele) => ele.id).indexOf(prodID);
 
   const [product, setproduct] = useState({});
 
   useEffect(() => {
-    setproduct(p[index]);
+    setproduct(plist[index]);
   }, []);
 
   return (

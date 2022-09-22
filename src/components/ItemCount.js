@@ -25,7 +25,7 @@ function ItemCount({ stock, initial, onAdd }) {
         <button onClick={() => addCantidad()}>+</button>
       </div>
 
-      <div class="selectorCantidad__summit">
+      <div class="selectorCantidad__summit" onClick={() => onAdd(itemCantidad)}>
         <button class="btn btn-primary">
           Agregar a <i class="bi bi-cart"></i>
         </button>
