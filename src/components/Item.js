@@ -1,7 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-function Item({ product, key, id }) {
+function Item({ product, id, key }) {
   return (
     <div className="col-4" key={key} id={id}>
       <div>
@@ -9,6 +8,7 @@ function Item({ product, key, id }) {
       </div>
       <div>
         <h3>{product.title}</h3>
+        <h4>{key}</h4>
       </div>
       <Link to={"/productos/" + product.id}>
         <button>Ver detalle</button>

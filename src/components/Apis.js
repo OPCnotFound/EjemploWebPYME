@@ -1,8 +1,3 @@
-export const getProducts = () => {
-  const listaprod = fetch("https://dummyjson.com/products");
-  return listaprod;
-};
-
 export const printProd = () => {
   const listaprod = {
     products: [
@@ -603,5 +598,15 @@ export const getCat = (arr) => {
 
   const unique = listCat.filter(onlyUnique);
 
+  return unique;
+};
+
+export const listaCategorias = (array) => {
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  const lista = array;
+  const listCat = lista.map((el) => el.category);
+  const unique = listCat.filter(onlyUnique);
   return unique;
 };
