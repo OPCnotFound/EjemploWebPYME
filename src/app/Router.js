@@ -12,7 +12,7 @@ const Router = ({ p, cat }) => (
   <BrowserRouter>
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<LayoutItemListContainer p={p} cat={cat} />} />
+        <Route index element={undefined} />
         <Route
           path="/productos"
           element={<LayoutItemListContainer p={p} cat={cat} />}

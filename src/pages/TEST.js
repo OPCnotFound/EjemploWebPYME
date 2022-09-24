@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { listaCategorias } from "../components/Apis";
 
-const TEST = ({ p, cat }) => {
+const TEST = () => {
   const [productos, setproductos] = useState([""]);
   const [categorias, setcategorias] = useState([""]);
 

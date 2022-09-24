@@ -605,8 +605,11 @@ export const listaCategorias = (array) => {
   function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   const lista = array;
-  const listCat = lista.map((el) => el.category);
+  const listCat = lista.map((el) => capitalize(el.category));
   const unique = listCat.filter(onlyUnique);
   return unique;
 };
