@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+public/css/bootstrap.css
 
 # production
 /build

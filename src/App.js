@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Provider from "./app/Provider";
 import Router from "./app/Router";
 import { getCat, printProd } from "./components/Apis";
 
@@ -16,9 +17,9 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <Provider>
       <Router p={productos} cat={catProduct} />
-    </div>
+    </Provider>
   );
 }
 
