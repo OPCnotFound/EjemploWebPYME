@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { listaCategorias } from "../components/Apis";
 import ItemCateg from "../components/ItemCateg";
 import ItemList from "../components/ItemList";
 
-function ItemListContainer({ filter }) {
+function ItemListContainer() {
+  const customfilter = useParams().category;
+  const filter = customfilter;
+
   const [productos, setproductos] = useState([""]);
-  const [categorias, setcategorias] = useState([""]);
 
   async function getProducts() {
     await fetch("https://dummyjson.com/products")
@@ -14,23 +17,18 @@ function ItemListContainer({ filter }) {
       .then((response) => setproductos(response));
   }
 
-  function getCategorys() {
-    const categorias = listaCategorias(productos);
-    setcategorias(categorias);
-  }
-
   useEffect(() => {
     getProducts();
+    return setproductos([]);
   }, []);
 
-  useEffect(() => {
-    getCategorys();
-  }, []);
+  const listacategorias = listaCategorias(productos);
+  listacategorias.unshift("Todos");
 
   return (
     <div className=" container row " id="ItemListContainer">
-      <ItemCateg categorias={categorias} />
-      <ItemList filter={filter} />
+      <ItemCateg categorias={listacategorias} />
+      <ItemList productos1={productos} filter={filter} />
     </div>
   );
 }

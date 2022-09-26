@@ -1,36 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
 
-function ItemList({ filter }) {
+function ItemList({ productos1, filter }) {
   const [pFiltered, setpFiltered] = useState([""]);
-  const [productos, setproductos] = useState([""]);
-
-  async function getProducts() {
-    await fetch("https://dummyjson.com/products")
-      .then((resp) => resp.json())
-      .then((response) => response.products)
-      .then((response) => setproductos(response));
-  }
-
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   const productosPorCategoria = () => {
     if (filter === undefined || filter === "Todos") {
-      setpFiltered(productos);
+      setpFiltered(productos1);
     } else {
-      const fil = productos.filter((ele) => ele.category === filter);
+      const fil = productos1.filter((ele) => ele.category === filter);
       setpFiltered(fil);
     }
-  };
+  }; //selccion con filtrado por categoria
 
   useEffect(() => {
     productosPorCategoria();
-  }, [filter]);
+  }, [productos1, filter]);
 
   return (
-    <div className="col-10 row">
+    <div className="col-9 row">
       {pFiltered.map((ele, id) => (
         <Item product={ele} key={`itemKey${ele.id}`} id={`item${id++}`} />
       ))}

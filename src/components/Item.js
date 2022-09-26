@@ -10,7 +10,7 @@ function Item({ product, id, key }) {
         <h3>{product.title}</h3>
         <h4>{key}</h4>
       </div>
-      <Link to={"/productos/" + product.id}>
+      <Link to={"/producto/" + product.id}>
         <button>Ver detalle</button>
       </Link>
     </div>

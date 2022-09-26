@@ -11,13 +11,13 @@ class linkNav {
 
 const linksNav = [
   new linkNav("Inicio", "/"),
-  new linkNav("Productos", "/productos/todos"),
+  new linkNav("Productos", "/products"),
   new linkNav("Contacto", "/test"),
 ];
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-md bg-light d-flex">
       <div class="container-fluid">
         <Link to="/">
           <img
@@ -28,7 +28,7 @@ const NavBar = () => {
         </Link>
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler  "
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown"
@@ -39,7 +39,10 @@ const NavBar = () => {
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div
+          class="collapse navbar-collapse  justify-content-end "
+          id="navbarNavDropdown"
+        >
           <ul className="navbar-nav">
             {linksNav.map((link, id) => (
               <li className="nav-item" key={`nav${id++}`}>

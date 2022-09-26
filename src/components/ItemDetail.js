@@ -4,9 +4,27 @@ import { AppContext } from "../app/Provider";
 import ItemCount from "./ItemCount";
 import { useContext } from "react";
 
-function ItemDetail({ product }) {
+function ItemDetail({ productos }) {
   const [agregar, setagregar] = useState(0);
   const [cartstate, setcartState] = useContext(AppContext);
+
+  const [producto, setproducto] = useState({ test: "asd" });
+
+  console.log("recibido" + productos);
+  console.log(producto);
+
+  const setDetallePro = () => {
+    if (productos === undefined) {
+      console.log("no cargaparametro");
+    } else {
+      setproducto(productos);
+      console.log("parametro cargado");
+    }
+  };
+
+  useEffect(() => {
+    setDetallePro();
+  }, [productos]);
 
   const borrarCarrito = () => {
     console.clear();
@@ -16,12 +34,12 @@ function ItemDetail({ product }) {
 
   const addItem = () => {
     if (agregar !== 0) {
-      const cartItem = { ...product, onCart: agregar }; //asignar cantidad de productos a agregar
+      const cartItem = { ...producto, onCart: agregar }; //asignar cantidad de productoos a agregar
 
       const cart = cartstate;
 
       const existe = cartstate.indexOf(
-        cartstate.find(({ id }) => id === product.id)
+        cartstate.find(({ id }) => id === producto.id)
       );
 
       //Verificar si item ya ha sido agregado
@@ -39,7 +57,7 @@ function ItemDetail({ product }) {
   };
 
   const delItem = () => {
-    const cartItem = { ...product, onCart: agregar }; //asignar cantidad de productos a agregar
+    const cartItem = { ...producto, onCart: agregar }; //asignar cantidad de productoos a agregar
 
     const cart = cartstate;
 
@@ -61,18 +79,18 @@ function ItemDetail({ product }) {
 
   addItem();
 
-  console.log(cartstate);
-
   return (
     <div>
-      <p>{product.title}</p>
-      {agregar !== 0 ? <span> {agregar} Items en Carrito </span> : ""}
-      <div>
-        <div>
-          <img src="{product.images[1]}" alt="Imagen de muestra" />
-        </div>
+      <h2>{producto.title}</h2>
+      {/*       <div>
+        <img src="https://dummyjson.com/image/i/products/3/1.jpg" alt="" />
       </div>
-      <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
+ */}
+      {"SI COLOCO IMAGENES SE QUIEBRA LA APP "}*
+      {agregar !== 0 ? <span> {agregar} Items en Carrito </span> : ""}
+      <div></div>
+      <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />
+      <h4>{producto.price}$</h4>
       {agregar !== 0 ? <Link to={"/cart"}>Terminar compra?</Link> : ""}
       <button onClick={() => borrarCarrito()}>LOS NO</button>
       <button onClick={() => delItem()}>Borrar Item</button>
