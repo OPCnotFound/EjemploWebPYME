@@ -25,7 +25,7 @@ const Cart = () => {
 </div>; */
   }
   return (
-    <div className="container row " id="CartPurchase">
+    <div className="container row align-items-center" id="CartPurchase">
       <div className="col-4">
         <img
           src="https://www.conversioner.com/wp-content/uploads/2014/09/Depositphotos_9472457_s.jpg"

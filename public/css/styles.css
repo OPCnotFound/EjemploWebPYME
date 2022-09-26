@@ -7,10 +7,15 @@
   width: 100%;
 }
 
+.navbar {
+  border-top: 1.5rem solid orangered;
+}
+
 #NavBarBottom {
-  height: 5rem;
+  height: 1.5rem;
   color: orangered;
   background-color: orangered;
+  margin-bottom: 2rem;
 }
 
 #Footer {
@@ -20,8 +25,12 @@
   background-color: orangered;
   color: white;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 2rem;
 }
 #Footer img {
   height: 75px;

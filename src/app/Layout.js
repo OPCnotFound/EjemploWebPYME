@@ -5,7 +5,9 @@ import Header from "../components/Header";
 const Layout = () => (
   <div>
     <Header />
-    <Outlet />
+    <div className="d-flex justify-content-center">
+      <Outlet />
+    </div>
     <Footer />
   </div>
 );
