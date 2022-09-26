@@ -11,6 +11,13 @@
   border-top: 1.5rem solid orangered;
 }
 
+.navbar-nav {
+  font-size: x-large;
+}
+.navbar-nav .nav-link {
+  color: orangered;
+}
+
 #NavBarBottom {
   height: 1.5rem;
   color: orangered;
@@ -37,4 +44,30 @@
 }
 #Footer p {
   justify-items: center;
+}
+
+#CartWidget {
+  all: unset;
+  position: relative;
+}
+#CartWidget a {
+  color: unset;
+  padding-right: 3rem;
+}
+#CartWidget a i {
+  font-size: 4rem;
+  text-shadow: 0.5px whitesmoke;
+}
+#CartWidget span {
+  display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  padding: 0.75rem;
+  border-radius: 50%;
+  border: 0.35rem solid orangered;
+  font-size: 1.5rem;
+  top: -1rem;
+  right: 0;
 }

@@ -7,23 +7,25 @@ function CartWidget() {
   const [cartstate, setcartState] = useContext(AppContext);
 
   const [widgetNumber, setwidgetNumber] = useState(0);
+  const widgetIcon = widgetNumber;
+  const cantidadOnCart = cartstate.length;
 
-  const actNumber = () => {
-    const actualizar = cartstate.length;
-    setwidgetNumber(actualizar);
-    console.log(actualizar);
-  };
+  console.log(cantidadOnCart);
+  console.log(widgetIcon);
+  const actualizar = cartstate.length;
+  console.log(actualizar);
 
   useEffect(() => {
-    actNumber();
-  }, [cartstate]);
+    setwidgetNumber(actualizar);
+    console.log("Widget Actualizado");
+  });
 
   return (
-    <button className="nav-link">
+    <button className="nav-link" id="CartWidget">
       <Link to={"/cart"}>
         <i className="bi bi-cart"></i>
-        <span>{widgetNumber}</span>
       </Link>
+      <span>{widgetIcon}</span>
     </button>
   );
 }

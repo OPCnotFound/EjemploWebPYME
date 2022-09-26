@@ -12,6 +12,7 @@ public/css/bootstrap.css
 
 # production
 /build
+/src/sass
 
 # misc
 .DS_Store
