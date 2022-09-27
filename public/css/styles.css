@@ -71,3 +71,12 @@
   top: -1rem;
   right: 0;
 }
+
+#CarritoVacio {
+  border: 0.5rem solid grey;
+  border-radius: 4rem;
+  padding: 1rem;
+}
+#CarritoVacio a {
+  font-size: x-large;
+}

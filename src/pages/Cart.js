@@ -1,62 +1,39 @@
+import React from "react";
+import CartContent from "../components/CartContent";
 import { useContext } from "react";
 import { AppContext } from "../app/Provider";
+import { useState } from "react";
+import { useEffect } from "react";
+import paginaVaciaSvg from "../media/empty-cart.svg";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const [cartstate, setcartState] = useContext(AppContext);
-  console.log(cartstate);
+  const [cartState, setcartState] = useContext(AppContext);
+  const [carritoVacioState, setCarritoVacioState] = useState(true);
+  const carritoVacio = cartState.length === 0 ? true : false;
+  console.log(cartState);
+  console.log(cartState.length);
+  console.log(carritoVacio);
+  useEffect(() => {
+    setCarritoVacioState(carritoVacio);
+  }, []);
 
-  const subtotal = cartstate.map((ele) => ele.price * ele.onCart);
-
-  const initialValue = 0;
-  const totalizador = subtotal.reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-    initialValue
-  );
-
-  const borrarCarrito = () => {
-    console.clear();
-    setcartState([]);
-  };
-  {
-    /* <div>
-  <img src="" alt="Imagen" />
-  <Link to={"/productos"}>Comienza Ahora!</Link>
-</div>; */
-  }
-  return (
-    <div className="container row align-items-center" id="CartPurchase">
-      <div className="col-4">
+  const sinItems = () => {
+    return (
+      <div className="d-flex flex-column align-items-center" id="CarritoVacio">
+        <h2>Tu Carrito esta vacio</h2>
         <img
-          src="https://www.conversioner.com/wp-content/uploads/2014/09/Depositphotos_9472457_s.jpg"
-          alt="Imagen de Carrito"
-          width="100%"
+          alt="Imagen de un carrito vacío."
+          src="https://editorialparalelo28.com/images/cartEmpty.png"
+          height="550px"
         />
+        <Link to={"/"}>Comenzar a Comprar?</Link>
       </div>
+    );
+  };
+  console.log(carritoVacio ? "vacio" : "lleno");
 
-      <div className=" col-8" id="Detalle-compra">
-        {cartstate.map((ele) => (
-          <div className="row">
-            <div className="col-5">
-              <img src={ele.thumbnail} alt="Imagen Producto" width="100%" />
-            </div>
-            <div className=" d-flex flex-column col-7">
-              <h4>{ele.title}</h4>
-              <h6>Cantidad:{ele.onCart}</h6>
-              <h5>Precio:{ele.price}</h5>
-              <h5 className="align-self-end">
-                subTotal:{ele.onCart * ele.price}
-              </h5>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="d-flex justify-content-between">
-        <button>PAGAR</button>
-        <h2>TOTAL:{totalizador}</h2>
-      </div>
-      <button onClick={() => borrarCarrito()}>Limpiar Carrito</button>
-    </div>
-  );
+  return <div>{carritoVacio ? sinItems() : <CartContent />}</div>;
 };
 
 export default Cart;

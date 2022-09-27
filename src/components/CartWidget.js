@@ -7,18 +7,14 @@ function CartWidget() {
   const [cartstate, setcartState] = useContext(AppContext);
 
   const [widgetNumber, setwidgetNumber] = useState(0);
-  const widgetIcon = widgetNumber;
-  const cantidadOnCart = cartstate.length;
-
-  console.log(cantidadOnCart);
-  console.log(widgetIcon);
-  const actualizar = cartstate.length;
-  console.log(actualizar);
+  const widgetIcon = cartstate.length;
 
   useEffect(() => {
-    setwidgetNumber(actualizar);
+    setwidgetNumber(widgetIcon);
     console.log("Widget Actualizado");
-  });
+  }, [cartstate]);
+
+  console.log(cartstate);
 
   return (
     <button className="nav-link" id="CartWidget">

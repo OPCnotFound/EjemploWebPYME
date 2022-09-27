@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import ItemDetail from "../components/ItemDetail";
 
 function ItemDetailContainer() {
-  const indexUrl = useParams().id - 1;
+  const customfilter = useParams().id - 1;
+
   const [productos, setproductos] = useState([""]);
 
   async function getProducts() {
@@ -16,17 +17,12 @@ function ItemDetailContainer() {
 
   useEffect(() => {
     getProducts();
-    console.log("useEffect listado");
-  }, [indexUrl]);
-
-  const productoDet = productos[indexUrl];
-  console.log("enviado" + productoDet);
-  console.log(productoDet);
+  }, []);
 
   return (
     <div>
       <h2>Informacion Detallada del Producto</h2>
-      <ItemDetail index={indexUrl} productos={productoDet} />
+      <ItemDetail index={customfilter} productos={productos} />
     </div>
   );
 }
