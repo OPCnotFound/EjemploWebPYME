@@ -1,37 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { listaCategorias } from "../components/Apis";
+import { getItemsByCondition } from "../app/Apis";
 
 const TEST = () => {
-  const [productos, setproductos] = useState([""]);
-  const [categorias, setcategorias] = useState([""]);
+  const [testState, setTestState] = useState();
+  const testVariable = testState;
+  console.log(testVariable);
 
-  async function getProducts() {
-    await fetch("https://dummyjson.com/products")
-      .then((resp) => resp.json())
-      .then((response) => response.products)
-      .then((response) => setproductos(response));
-  }
-
-  function getCategorys() {
-    const categorias = listaCategorias(productos);
-    setcategorias(categorias);
-  }
+  const test = () => {
+    getItemsByCondition("smartphones", "category").then((res) =>
+      setTestState(res)
+    );
+  };
 
   useEffect(() => {
-    getProducts();
+    test();
   }, []);
 
-  useEffect(() => {
-    getCategorys();
-  }, []);
-
-  return (
-    <div>
-      <h2>TEST</h2>
-      <button onClick={(e) => setcategorias(5)}>refresh</button>
-      <p>{JSON.stringify(categorias)}</p>
-    </div>
-  );
+  return <div>TEST</div>;
 };
 
 export default TEST;

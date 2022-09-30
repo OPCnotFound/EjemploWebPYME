@@ -9,6 +9,7 @@
 # testing
 /coverage
 public/css/bootstrap.css
+src/pages/TEST.js
 
 # production
 /build

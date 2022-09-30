@@ -3,27 +3,25 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../app/Provider";
 import ItemCount from "./ItemCount";
 import { useContext } from "react";
+import { getItemById } from "../app/Apis";
 
-function ItemDetail({ index, productos }) {
-  const listaPro = productos;
-  const indice = index;
-
+function ItemDetail({ index }) {
   const [cartstate, setcartState] = useContext(AppContext);
   const [prodDet, setProdDet] = useState();
   const [agregados, setAgregados] = useState(0);
   const cantidadAgregada = agregados;
 
-  const proDetallada = !prodDet ? {} : { ...prodDet, onCart: agregados };
-  console.log(proDetallada);
-  const listaImagenes = !proDetallada.images ? [] : proDetallada.images;
-
-  const getProdDet = (index, productos) => {
-    return productos[index];
+  const obtenerProductos = async () => {
+    await getItemById(index).then((res) => setProdDet(res));
   };
 
   useEffect(() => {
-    setProdDet(getProdDet(indice, listaPro));
-  }, [productos]);
+    obtenerProductos();
+  }, []);
+
+  const proDetallada = { ...prodDet, onCart: agregados };
+  console.log(proDetallada);
+  const listaImagenes = !proDetallada.images ? [] : proDetallada.images;
 
   const addToCart = () => {
     console.log("add");
@@ -75,7 +73,7 @@ function ItemDetail({ index, productos }) {
 
   return (
     <div className="d-flex flex-column">
-      <h3>{proDetallada.title}</h3>{" "}
+      <h2>{proDetallada.title}</h2>{" "}
       <img src={listaImagenes[0]} alt="" height="350px" />
       {cantidadAgregada !== 0 ? (
         <button onClick={() => setAgregados(0)}>

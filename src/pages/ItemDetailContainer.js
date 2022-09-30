@@ -1,28 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import ItemDetail from "../components/ItemDetail";
+import { getItemById, getItems } from "../app/Apis";
 
 function ItemDetailContainer() {
-  const customfilter = useParams().id - 1;
-
-  const [productos, setproductos] = useState([""]);
-
-  async function getProducts() {
-    await fetch("https://dummyjson.com/products")
-      .then((resp) => resp.json())
-      .then((response) => response.products)
-      .then((response) => setproductos(response));
-  }
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
+  const customfilter = useParams().id;
   return (
     <div>
-      <h2>Informacion Detallada del Producto</h2>
-      <ItemDetail index={customfilter} productos={productos} />
+      <h3>Informacion Detallada del Producto</h3>
+      <ItemDetail index={customfilter} />
     </div>
   );
 }

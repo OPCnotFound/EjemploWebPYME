@@ -80,3 +80,7 @@
 #CarritoVacio a {
   font-size: x-large;
 }
+
+#ItemCateg ul li a {
+  all: unset;
+}

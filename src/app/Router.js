@@ -3,29 +3,23 @@ import ItemListContainer from "../pages/ItemListContainer";
 import Page404 from "../pages/Page404";
 import TEST from "../pages/TEST";
 import Layout from "./Layout";
-import LayoutItemListContainer from "./LayoutItemListContainer";
-import ItemList from "../components/ItemList";
 import ItemDetailContainer from "../pages/ItemDetailContainer";
 import Cart from "../pages/Cart";
 
-const Router = ({ p, cat }) => (
+const Router = () => (
   <BrowserRouter>
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<LayoutItemListContainer p={p} cat={cat} />} />
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/products" element={<ItemListContainer />} />
         <Route
-          path="/productos"
-          element={<LayoutItemListContainer p={p} cat={cat} />}
-        >
-          {cat.map((ele) => (
-            <Route path={ele} element={<ItemList p={p} filter={ele} />} />
-          ))}
-          ;
-          <Route path=":id" element={<ItemDetailContainer plist={p} />} />
-        </Route>
-        <Route path="/cart" element={<Cart />} />
+          path="/category/:category"
+          element={<ItemListContainer filter="todos" />}
+        />
+        <Route path="/producto/:id" element={<ItemDetailContainer />} />
 
-        <Route path="/test" element={<TEST p={p} cat={cat} />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/test" element={<TEST />} />
         <Route path="*" element={<Page404 />} />
       </Route>
     </Routes>
