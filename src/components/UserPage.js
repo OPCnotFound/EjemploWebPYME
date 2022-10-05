@@ -1,0 +1,56 @@
+import React from "react";
+
+const UserPage = () => {
+  return (
+    <div className="container" id="Login">
+      <div className="screen">
+        <div className="screen__content">
+          <form className="login">
+            <div className="login__field">
+              <i className="login__icon fas fa-user"></i>
+              <input
+                type="text"
+                className="login__input"
+                placeholder="User name / Email"
+              />
+            </div>
+            <div className="login__field">
+              <i className="login__icon fas fa-lock"></i>
+              <input
+                type="password"
+                className="login__input"
+                placeholder="Password"
+              />
+            </div>
+            <button className="button login__submit">
+              <span className="button__text">Log In Now</span>
+              <i className="button__icon fas fa-chevron-right"></i>
+            </button>
+          </form>
+          <div className="social-login">
+            <h3>log in via</h3>
+            <div className="social-icons">
+              <a href="#" className="social-login__icon fab fa-instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="#" className="social-login__icon fab fa-facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" className="social-login__icon fab fa-twitter">
+                <i class="bi bi-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="screen__background">
+          <span className="screen__background__shape screen__background__shape4"></span>
+          <span className="screen__background__shape screen__background__shape3"></span>
+          <span className="screen__background__shape screen__background__shape2"></span>
+          <span className="screen__background__shape screen__background__shape1"></span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UserPage;

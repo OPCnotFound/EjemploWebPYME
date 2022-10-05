@@ -14,8 +14,6 @@ function CartWidget() {
     console.log("Widget Actualizado");
   }, [cartstate]);
 
-  console.log(cartstate);
-
   return (
     <button className="nav-link" id="CartWidget">
       <Link to={"/cart"}>

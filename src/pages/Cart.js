@@ -4,16 +4,15 @@ import { useContext } from "react";
 import { AppContext } from "../app/Provider";
 import { useState } from "react";
 import { useEffect } from "react";
-import paginaVaciaSvg from "../media/empty-cart.svg";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const [cartState, setcartState] = useContext(AppContext);
+  const [cartState, setcartState, userLogstate, setUserLogstate] =
+    useContext(AppContext);
   const [carritoVacioState, setCarritoVacioState] = useState(true);
+
   const carritoVacio = cartState.length === 0 ? true : false;
-  console.log(cartState);
-  console.log(cartState.length);
-  console.log(carritoVacio);
+
   useEffect(() => {
     setCarritoVacioState(carritoVacio);
   }, []);
