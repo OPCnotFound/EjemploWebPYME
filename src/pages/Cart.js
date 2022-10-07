@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createItem } from "../app/ApisOrdenes";
 import { createItemCarrito } from "../app/ApisUsers";
+import swal from "sweetalert";
 
 const Cart = () => {
   const [cartState, setcartState, userLogstate, setUserLogstate] =
@@ -33,13 +34,29 @@ const Cart = () => {
       total: totalizador,
     };
 
-    await createItem(ordenGenerada).then((res) => console.log(res));
-    await createItemCarrito(ordenGenerada, user.id).then((res) =>
-      console.log(res)
-    );
+    swal({
+      title: "Esta seguro que quiere realizar la compra?",
+      text: "O desea  modificar seguir modificando su carrito?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((procedeCompra) => {
+      if (procedeCompra) {
+        createItem(ordenGenerada).then((res) =>
+          swal({
+            title: `Su compra fue registrada con el ID:${res}`,
+            icon: "success",
+          })
+        );
+        createItemCarrito(ordenGenerada, user.id).then((res) =>
+          console.log(res)
+        );
+        setcartState([]);
+      } else {
+        swal("Compra no terminada");
+      }
+    });
   };
-
-  /* { buyer: { name, phone, email }, items: [{ id, title, price }], date, total */
 
   const sinItems = () => {
     return (
