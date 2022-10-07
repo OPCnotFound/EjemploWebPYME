@@ -5,17 +5,41 @@ import { AppContext } from "../app/Provider";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { createItem } from "../app/ApisOrdenes";
+import { createItemCarrito } from "../app/ApisUsers";
 
 const Cart = () => {
   const [cartState, setcartState, userLogstate, setUserLogstate] =
     useContext(AppContext);
   const [carritoVacioState, setCarritoVacioState] = useState(true);
-
   const carritoVacio = cartState.length === 0 ? true : false;
 
   useEffect(() => {
     setCarritoVacioState(carritoVacio);
   }, []);
+
+  const ordenCompra = async ({ eve, totalizador }) => {
+    console.log("click");
+    const user = userLogstate;
+
+    const ordenGenerada = {
+      buyer: {
+        name: user.name,
+        phone: user.phone,
+        email: user.email,
+      },
+      items: cartState,
+      date: eve.timeStamp,
+      total: totalizador,
+    };
+
+    await createItem(ordenGenerada).then((res) => console.log(res));
+    await createItemCarrito(ordenGenerada, user.id).then((res) =>
+      console.log(res)
+    );
+  };
+
+  /* { buyer: { name, phone, email }, items: [{ id, title, price }], date, total */
 
   const sinItems = () => {
     return (
@@ -30,9 +54,17 @@ const Cart = () => {
       </div>
     );
   };
-  console.log(carritoVacio ? "vacio" : "lleno");
+  console.log(carritoVacioState ? "vacio" : "lleno");
 
-  return <div>{carritoVacio ? sinItems() : <CartContent />}</div>;
+  return (
+    <div>
+      {carritoVacioState ? (
+        sinItems()
+      ) : (
+        <CartContent ordenCompra={ordenCompra} />
+      )}
+    </div>
+  );
 };
 
 export default Cart;

@@ -8,7 +8,7 @@ const Provider = ({ children }) => {
   const [userLogstate, setUserLogstate] = useState({});
 
   const userTest = {
-    id: 1,
+    id: "Hu5BlIyNMT6ZMmQzLKUw",
     name: "Leanne Graham",
     username: "Bret",
     email: "Sincere@april.biz",
@@ -45,34 +45,3 @@ const Provider = ({ children }) => {
 };
 
 export default Provider;
-
-/* import React, { useContext, useState } from "react";
-const CountContext = React.createContext("count");
-const DescendantA = () => {
-  const { count, setCount, count2, setCount2 } = useContext(CountContext);
-  return (
-    <>
-      <button onClick={() => setCount((c) => c + 1)}>Click me {count}</button>
-      <button onClick={() => setCount2((c) => c + 1)}>Click me {count2}</button>
-    </>
-  );
-};
-const DescendantB = () => {
-  const { count, setCount, count2, setCount2 } = useContext(CountContext);
-return (
-    <>
-      <button onClick={() => setCount((c) => c + 1)}>Click me {count}</button>
-      <button onClick={() => setCount2((c) => c + 1)}>Click me {count2}</button>
-    </>
-  );
-};
-export default function App() {
-  const [count, setCount] = useState(0);
-  const [count2, setCount2] = useState(0);
-  return (
-    <CountContext.Provider value={{ count, setCount, count2, setCount2 }}>
-      <DescendantA />
-      <DescendantB />
-    </CountContext.Provider>
-  );
-} */

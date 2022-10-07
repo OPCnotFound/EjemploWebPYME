@@ -3,12 +3,12 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const Layout = () => (
-  <div>
+  <>
     <Header />
-    <div className="d-flex justify-content-center">
-      <Outlet />
-    </div>
+
+    <Outlet className="d-flex justify-content-center" />
+
     <Footer />
-  </div>
+  </>
 );
 export default Layout;

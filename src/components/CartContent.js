@@ -4,17 +4,14 @@ import { useState } from "react";
 import { useContext } from "react";
 import { AppContext } from "../app/Provider";
 
-const CartContent = () => {
+const CartContent = ({ ordenCompra }) => {
   const [cartState, setcartState] = useContext(AppContext);
   const [carrito, setCarrito] = useState();
   const cart = cartState;
-  console.log(cart);
 
   useEffect(() => {
     setCarrito(cart);
   }, []);
-
-  console.log(carrito);
 
   const borrarCarrito = () => {
     console.clear();
@@ -72,7 +69,9 @@ const CartContent = () => {
         ))}
       </div>
       <div className="d-flex justify-content-between">
-        <button>PAGAR</button>
+        <button onClick={(eve) => ordenCompra({ eve, totalizador })}>
+          PAGAR
+        </button>
         <h2>TOTAL:{totalizador}</h2>
       </div>
       <button onClick={() => borrarCarrito()}>Limpiar Carrito</button>
