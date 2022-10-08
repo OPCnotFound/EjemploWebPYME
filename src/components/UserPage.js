@@ -31,13 +31,13 @@ const UserPage = () => {
             <h3>log in via</h3>
             <div className="social-icons">
               <a href="#" className="social-login__icon fab fa-instagram">
-                <i class="bi bi-instagram"></i>
+                <i className="bi bi-instagram"></i>
               </a>
               <a href="#" className="social-login__icon fab fa-facebook">
-                <i class="bi bi-facebook"></i>
+                <i className="bi bi-facebook"></i>
               </a>
               <a href="#" className="social-login__icon fab fa-twitter">
-                <i class="bi bi-twitter"></i>
+                <i className="bi bi-twitter"></i>
               </a>
             </div>
           </div>

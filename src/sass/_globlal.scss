@@ -1,11 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
+$primary_font_family: "Montserrat", sans-serif;
+$secondary_font_family: "Hind", sans-serif;
 
 * {
-    margin: 0;
- }
-
-#ItemListContainer{
-    
-
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $primary_font_family;
 }
+
+body {
+  background-color: whitesmoke;
+}
+
+/* SCSS HEX */
+$persimmon: #e95c1aff;
+$charcoal: #37515fff;
+$carnation-pink: #f7accfff;
+$xiketic: #1f0812ff;
+
+/* SCSS HSL */
+$persimmon: hsla(19, 82%, 51%, 1);
+$charcoal: hsla(201, 27%, 29%, 1);
+$carnation-pink: hsla(332, 82%, 82%, 1);
+$xiketic: hsla(334, 59%, 8%, 1);
+
+/* SCSS RGB */
+$persimmon: rgba(233, 92, 26, 1);
+$charcoal: rgba(55, 81, 95, 1);
+$carnation-pink: rgba(247, 172, 207, 1);
+$xiketic: rgba(31, 8, 18, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(
+  0deg,
+  #e95c1aff,
+  #37515fff,
+  #f7accfff,
+  #1f0812ff
+);
+$gradient-right: linear-gradient(
+  90deg,
+  #e95c1aff,
+  #37515fff,
+  #f7accfff,
+  #1f0812ff
+);
+$gradient-bottom: linear-gradient(
+  180deg,
+  #e95c1aff,
+  #37515fff,
+  #f7accfff,
+  #1f0812ff
+);
+$gradient-left: linear-gradient(
+  270deg,
+  #e95c1aff,
+  #37515fff,
+  #f7accfff,
+  #1f0812ff
+);
+$gradient-top-right: linear-gradient(
+  45deg,
+  #e95c1aff,
+  #37515fff,
+  #f7accfff,
+  #1f0812ff
+);
+$gradient-bottom-right: linear-gradient(
+  135deg,
+  #e95c1aff,
+  #37515fff,
+  #f7accfff,
+  #1f0812ff
+);
+$gradient-top-left: linear-gradient(
+  225deg,
+  #e95c1aff,
+  #37515fff,
+  #f7accfff,
+  #1f0812ff
+);
+$gradient-bottom-left: linear-gradient(
+  315deg,
+  #e95c1aff,
+  #37515fff,
+  #f7accfff,
+  #1f0812ff
+);
+$gradient-radial: radial-gradient(#e95c1aff, #37515fff, #f7accfff, #1f0812ff);

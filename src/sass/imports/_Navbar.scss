@@ -1,21 +1,78 @@
-#header{
-    width: 100%;
-    
+#header {
+  width: 100%;
 }
 
-.navbar{
-    border-top: 1.5rem solid orangered;
+.navbar-nav {
+  font-size: x-large;
+  .nav-link {
+    color: $persimmon;
+  }
 }
 
-.navbar-nav{
-    font-size: x-large;
-    .nav-link{
-    color: orangered;}
+#NavBarTop {
+  background-color: $persimmon;
+  padding: 0.5rem;
+  display: flex;
+  color: $carnation-pink;
+  align-items: center;
+  text-shadow: 0 0 2px $charcoal;
+  height: 5rem;
+
+  h5 {
+    font-weight: 900;
+  }
+
+  div,
+  ul {
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 90%;
+    width: max-content;
+
+    li {
+      all: unset;
+      padding: 0 0.5rem;
+
+      a {
+        color: unset;
+        i {
+          font-size: x-large;
+        }
+      }
+    }
+  }
 }
 
-#NavBarBottom{
-    height: 1.5rem;
-    color: orangered;
-    background-color: orangered;
-    margin-bottom: 2rem;
+#NavBar {
+  display: flex;
+  padding: 1rem 0;
+  height: 20vh;
+
+  .logoContainer {
+    height: 100%;
+    max-width: 45%;
+    border: 2rem yelow solid;
+    display: flex;
+    a {
+      width: 100%;
+      overflow: hidden;
+      img {
+        margin-top: -250px;
+        height: 590px;
+      }
+    }
+  }
+
+  .navbar-nav {
+    font-family: $primary_font_family;
+    font-weight: 900;
+  }
+}
+#NavBarBottom {
+  height: 1.5rem;
+  color: $persimmon;
+  background-color: $persimmon;
+  margin-bottom: 2rem;
 }

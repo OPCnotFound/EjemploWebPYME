@@ -12,6 +12,17 @@ function CartWidget() {
   console.log(widgetNumber);
   console.log(widgetIcon);
 
+  const uiContador = () => {
+    return (
+      <span
+        className="d-flex justify-content-center align-items-center"
+        id="uiContador"
+      >
+        {widgetIcon}
+      </span>
+    );
+  };
+
   useEffect(() => {
     setwidgetNumber(widgetIcon);
     console.log("Widget Actualizado");
@@ -26,7 +37,7 @@ function CartWidget() {
         {user}
         <i className="bi bi-cart"></i>
       </Link>
-      <span>{widgetIcon}</span>
+      {widgetIcon === 0 ? "" : uiContador()}
     </button>
   );
 }

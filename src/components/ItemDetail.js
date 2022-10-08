@@ -77,7 +77,7 @@ function ItemDetail({ index }) {
       <img src={listaImagenes[0]} alt="" height="350px" />
       {cantidadAgregada !== 0 ? (
         <button onClick={() => setAgregados(0)}>
-          <i class="bi bi-trash">{cantidadAgregada} Items en Carrito</i>
+          <i className="bi bi-trash">{cantidadAgregada} Items en Carrito</i>
         </button>
       ) : (
         ""
