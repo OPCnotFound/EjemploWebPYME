@@ -8,10 +8,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-body {
-  background-color: whitesmoke;
-}
-
 /* SCSS HEX */
 /* SCSS HSL */
 /* SCSS RGB */
@@ -78,7 +74,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem 0;
+  padding: 1rem 0.25rem;
   height: 20vh;
 }
 #NavBar .logoContainer {
@@ -89,6 +85,12 @@ body {
   display: -ms-flexbox;
   display: flex;
 }
+@media (max-width: 637px) {
+  #NavBar .logoContainer {
+    max-width: none;
+    min-width: 50%;
+  }
+}
 #NavBar .logoContainer a {
   width: 100%;
   overflow: hidden;
@@ -97,9 +99,39 @@ body {
   margin-top: -250px;
   height: 590px;
 }
+@media (max-width: 1280px) {
+  #NavBar .logoContainer a img {
+    margin-top: -150px;
+    height: 390px;
+  }
+}
+@media (max-width: 998px) {
+  #NavBar .logoContainer a img {
+    margin-top: -75px;
+    height: 270px;
+  }
+}
+@media (max-width: 576px) {
+  #NavBar .logoContainer a img {
+    margin-top: -35px;
+    height: 200px;
+  }
+}
 #NavBar .navbar-nav {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
+}
+#NavBar .navbar-toggler {
+  margin-right: 0.5rem;
+  padding: 1.25rem;
+  border: rgb(247, 172, 207) 5px;
+  background-color: rgb(233, 92, 26);
+}
+#NavBar .navbar-toggler .icon {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: rgb(247, 172, 207);
+  text-shadow: 0 0 2px rgb(31, 8, 18);
 }
 
 #NavBarBottom {
@@ -172,7 +204,19 @@ body {
 #CarritoVacio a {
   font-size: x-large;
 }
+#CarritoVacio #navbarNavDropdown ul li {
+  border: 0.5rem solid rgb(233, 92, 26);
+}
 
+#ItemCateg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 #ItemCateg button {
   background-color: rgb(233, 92, 26);
   padding: 0.5rem;
@@ -186,14 +230,98 @@ body {
   font-weight: 800;
   color: white;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #ItemCateg {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+#ItemListContainer #ItemList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2rem;
+}
+#ItemListContainer #ItemList .itemCard {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: rgb(247, 172, 207);
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.8px);
+  -webkit-backdrop-filter: blur(5.8px);
+  border: 0.25rem solid rgb(233, 92, 26);
+  color: white;
+  text-shadow: 0 0.1rem 0.5rem rgb(55, 81, 95);
+}
+#ItemListContainer #ItemList .itemCard .cntnr {
+  position: relative;
+}
+#ItemListContainer #ItemList .itemCard .cntnr .image {
+  opacity: 1;
+  display: block;
+  height: 15rem;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#ItemListContainer #ItemList .itemCard .cntnr .middle {
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+#ItemListContainer #ItemList .itemCard .cntnr:hover .image {
+  opacity: 0.3;
+}
+#ItemListContainer #ItemList .itemCard .cntnr:hover .middle {
+  opacity: 1;
+}
+#ItemListContainer #ItemList .itemCard .text {
+  background-color: rgb(233, 92, 26);
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 16px 32px;
+}
+@media (min-width: 992px) {
+  #ItemListContainer {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
   }
 }

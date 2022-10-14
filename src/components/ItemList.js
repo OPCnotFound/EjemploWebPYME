@@ -18,10 +18,12 @@ function ItemList({ productos, filter }) {
   }, [productos, filter]);
 
   return (
-    <div className="col-9 row">
-      {pFiltered.map((ele, id) => (
-        <Item product={ele} key={`itemKey${ele.id}`} id={`item${id++}`} />
-      ))}
+    <div className="col-lg-10  ">
+      <div className=" row" id="ItemList">
+        {pFiltered.map((ele, id) => (
+          <Item product={ele} key={`itemKey${id}`} id={`item${id}`} />
+        ))}
+      </div>
     </div>
   );
 }

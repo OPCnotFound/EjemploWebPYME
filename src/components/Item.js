@@ -2,17 +2,22 @@ import { Link } from "react-router-dom";
 
 function Item({ product, id, key }) {
   return (
-    <div className="col-4" key={key} id={id}>
-      <div>
-        <img src={product.thumbnail} alt="" height="100rem" />
+    <div
+      className="itemCard card col-12 col-md-5 col-lg-3"
+      key={"ItemKey" + key}
+      id={"Item" + id}
+    >
+      <div className="cntnr">
+        <img src={product.thumbnail} className="card-img-top image" alt="..." />
+        <div className="middle">
+          <Link to={"/producto/" + product.id}>
+            <button className="btn btn-primary text">Ver detalle</button>
+          </Link>
+        </div>
       </div>
       <div>
-        <h3>{product.title}</h3>
-        <h4>{key}</h4>
+        <h4 className="card-title">{product.title}</h4>
       </div>
-      <Link to={"/producto/" + product.id}>
-        <button>Ver detalle</button>
-      </Link>
     </div>
   );
 }

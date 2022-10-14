@@ -17,7 +17,7 @@ const linksNav = [
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-md bg-light d-flex" id="NavBar">
+    <nav className="navbar navbar-expand-lg bg-light d-flex" id="NavBar">
       <div className="logoContainer">
         <Link to="/">
           <img
@@ -36,7 +36,9 @@ const NavBar = () => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon"></span>
+        <span>
+          <i className="icon bi bi-list"></i>
+        </span>
       </button>
 
       <div

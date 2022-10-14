@@ -47,7 +47,7 @@
 
 #NavBar {
   display: flex;
-  padding: 1rem 0;
+  padding: 1rem 0.25rem;
   height: 20vh;
 
   .logoContainer {
@@ -55,12 +55,28 @@
     max-width: 45%;
     border: 2rem yelow solid;
     display: flex;
+    @media (max-width: 637px) {
+      max-width: none;
+      min-width: 50%;
+    }
     a {
       width: 100%;
       overflow: hidden;
       img {
         margin-top: -250px;
         height: 590px;
+        @media (max-width: 1280px) {
+          margin-top: -150px;
+          height: 390px;
+        }
+        @media (max-width: 998px) {
+          margin-top: -75px;
+          height: 270px;
+        }
+        @media (max-width: 576px) {
+          margin-top: -35px;
+          height: 200px;
+        }
       }
     }
   }
@@ -68,6 +84,20 @@
   .navbar-nav {
     font-family: $primary_font_family;
     font-weight: 900;
+  }
+
+  .navbar-toggler {
+    margin-right: 0.5rem;
+    padding: 1.25rem;
+    border: $carnation-pink 5px;
+    background-color: $persimmon;
+
+    .icon {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: $carnation-pink;
+      text-shadow: 0 0 2px $xiketic;
+    }
   }
 }
 #NavBarBottom {

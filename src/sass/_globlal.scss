@@ -10,10 +10,6 @@ $secondary_font_family: "Hind", sans-serif;
   font-family: $primary_font_family;
 }
 
-body {
-  background-color: whitesmoke;
-}
-
 /* SCSS HEX */
 $persimmon: #e95c1aff;
 $charcoal: #37515fff;
@@ -49,10 +45,10 @@ $gradient-right: linear-gradient(
 );
 $gradient-bottom: linear-gradient(
   180deg,
-  #e95c1aff,
-  #37515fff,
-  #f7accfff,
-  #1f0812ff
+  #e95c1aff 25%,
+  #37515fff 25%,
+  #f7accfff 25%,
+  #1f0812ff 25%
 );
 $gradient-left: linear-gradient(
   270deg,

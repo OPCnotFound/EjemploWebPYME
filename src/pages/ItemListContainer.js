@@ -16,7 +16,6 @@ function ItemListContainer() {
     "skincare",
     "groceries",
     "laptops",
-    ,
   ];
 
   const obtenerProductos = async () => {
@@ -38,7 +37,7 @@ function ItemListContainer() {
   listacategorias.unshift("Todos");
  */
   return (
-    <div className=" container row " id="ItemListContainer">
+    <div id="ItemListContainer">
       <ItemCateg categorias={categorias} />
 
       <ItemList productos={productos} filter={customfilter} />
