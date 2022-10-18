@@ -4,6 +4,7 @@ import { AppContext } from "../app/Provider";
 import ItemCount from "./ItemCount";
 import { useContext } from "react";
 import { getItemById } from "../app/Apis";
+import CarouselFadeExample from "../components/Carousel";
 
 function ItemDetail({ index }) {
   const [cartstate, setcartState] = useContext(AppContext);
@@ -72,26 +73,29 @@ function ItemDetail({ index }) {
   );
 
   return (
-    <div className="d-flex flex-column">
-      <h2>{proDetallada.title}</h2>{" "}
-      <img src={listaImagenes[0]} alt="" height="350px" />
-      {cantidadAgregada !== 0 ? (
-        <button onClick={() => setAgregados(0)}>
-          <i className="bi bi-trash">{cantidadAgregada} Items en Carrito</i>
-        </button>
-      ) : (
-        ""
-      )}
-      <h3>{proDetallada.price} CLP</h3>
-      <ItemCount
-        stock={proDetallada.stock}
-        initial={1}
-        onAdd={onAdd}
-        addToCart={addToCart}
-      />
-      {agregados !== 0 ? <Link to={"/cart"}>Terminar compra?</Link> : ""}
-      <button onClick={() => setcartState(test)}>test</button>
-      <button onClick={() => borrarCarrito()}>Limpiar Carrito</button>
+    <div id="ItemDetailContainer">
+      <div className=" row" id="ItemDetail">
+        <div className="col-8" id="ItemCarousel">
+          <CarouselFadeExample imagenes={listaImagenes} />
+        </div>
+
+        <div className="col-4 d-flex flex-column " id="ItemContent">
+          <h2>{proDetallada.title}</h2>
+          <h3>{proDetallada.price} USD</h3>
+          <div id="ReviewStars">
+            <i class="bi bi-star-fill">{proDetallada.rating}</i>
+          </div>
+          <p className="description">{proDetallada.description}</p>
+          <ItemCount
+            stock={proDetallada.stock}
+            initial={1}
+            onAdd={onAdd}
+            addToCart={addToCart}
+          />
+          <button onClick={() => setcartState(test)}>test</button>
+          <button onClick={() => borrarCarrito()}>Limpiar Carrito</button>
+        </div>
+      </div>
     </div>
   );
 }

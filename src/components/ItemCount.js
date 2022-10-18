@@ -20,21 +20,23 @@ function ItemCount({ stock, initial, onAdd }) {
       <span className="align-self-end">stock: {stock}</span>
 
       <div className="selectorCantidad__botonera">
-        <button onClick={() => subsCantidad()}>-</button>
+        <button className="anadir" onClick={() => subsCantidad()}>
+          -
+        </button>
         <span> {itemCantidad}</span>
-        <button onClick={() => addCantidad()}>+</button>
+        <button className="sustraer" onClick={() => addCantidad()}>
+          +
+        </button>
       </div>
 
-      <div
+      <button
         className="selectorCantidad__summit"
         onClick={() => {
           onAdd(itemCantidad);
         }}
       >
-        <button className="btn btn-primary">
-          Agregar a <i className="bi bi-cart"></i>
-        </button>
-      </div>
+        Agregar a <i className="bi bi-cart"></i>
+      </button>
     </div>
   );
 }

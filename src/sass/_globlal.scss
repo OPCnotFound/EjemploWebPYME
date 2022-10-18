@@ -7,6 +7,10 @@ $secondary_font_family: "Hind", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: $secondary_font_family;
+}
+
+h1 h2 h3 li {
   font-family: $primary_font_family;
 }
 
