@@ -6,11 +6,11 @@ import { AppContext } from "../app/Provider";
 function CartWidget() {
   const [cartstate, setcartState, userLogstate, setUserLogstate] =
     useContext(AppContext);
-  const widgetCount = cartstate.length;
-
-  useEffect(() => {
-    console.log("icon displays " + widgetCount);
-  }, []);
+  const [widgetNumber, setwidgetNumber] = useState(0);
+  const cart = cartstate;
+  const widgetIcon = cart.length;
+  console.log(widgetNumber);
+  console.log(widgetIcon);
 
   const uiContador = () => {
     return (
@@ -18,10 +18,15 @@ function CartWidget() {
         className="d-flex justify-content-center align-items-center"
         id="uiContador"
       >
-        {widgetCount}
+        {widgetIcon}
       </span>
     );
   };
+
+  useEffect(() => {
+    setwidgetNumber(widgetIcon);
+    console.log("Widget Actualizado");
+  }, []);
 
   const user =
     userLogstate === undefined ? "Iniciar Sesion?" : userLogstate.name + " ";
@@ -32,7 +37,7 @@ function CartWidget() {
         {user}
         <i className="bi bi-cart"></i>
       </Link>
-      {widgetCount === 0 ? "" : uiContador()}
+      {widgetIcon === 0 ? "" : uiContador()}
     </button>
   );
 }

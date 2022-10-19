@@ -5,9 +5,9 @@ import { useContext } from "react";
 import { AppContext } from "../app/Provider";
 
 const CartContent = ({ ordenCompra }) => {
-  const [cartstate, setcartState] = useContext(AppContext);
+  const [cartState, setcartState] = useContext(AppContext);
   const [carrito, setCarrito] = useState();
-  const cart = cartstate;
+  const cart = cartState;
 
   useEffect(() => {
     setCarrito(cart);

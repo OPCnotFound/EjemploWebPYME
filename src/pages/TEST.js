@@ -1,11 +1,11 @@
-const TEST = () => {
-  const actualizar = () => {};
+import React, { useEffect, useState } from "react";
+import { getItemsByCondition } from "../app/Apis";
+import CarouselFadeExample from "../components/Carousel";
+import ItemCount from "../components/ItemCount";
+import ScreenreaderLabelExample from "../components/ProgressBar";
 
-  return (
-    <>
-      <button onClick={actualizar()}>actualizar</button>
-    </>
-  );
+const TEST = () => {
+  return <div>test</div>;
 };
 
 export default TEST;

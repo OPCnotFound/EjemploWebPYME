@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../app/Provider";
 import ItemCount from "./ItemCount";
 import { useContext } from "react";
@@ -9,6 +10,7 @@ function ItemDetail({ index }) {
   const [cartstate, setcartState] = useContext(AppContext);
   const [prodDet, setProdDet] = useState();
   const [agregados, setAgregados] = useState(0);
+  const cantidadAgregada = agregados;
 
   const obtenerProductos = async () => {
     await getItemById(index).then((res) => setProdDet(res));
@@ -19,9 +21,11 @@ function ItemDetail({ index }) {
   }, []);
 
   const proDetallada = { ...prodDet, onCart: agregados };
+  console.log(proDetallada);
   const listaImagenes = !proDetallada.images ? [] : proDetallada.images;
 
   const addToCart = () => {
+    console.log("add");
     const cart = cartstate;
 
     const cartItemIndex = cartstate.indexOf(
@@ -78,7 +82,6 @@ function ItemDetail({ index }) {
         <div className="col-4 d-flex flex-column " id="ItemContent">
           <h2>{proDetallada.title}</h2>
           <h3>{proDetallada.price} USD</h3>
-          <button className="delCart">Eliminar del carrito</button>
           <div id="ReviewStars">
             <i class="bi bi-star-fill">{proDetallada.rating}</i>
           </div>
