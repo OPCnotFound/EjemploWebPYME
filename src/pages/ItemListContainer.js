@@ -30,12 +30,8 @@ function ItemListContainer() {
 
   useEffect(() => {
     obtenerProductos();
-    console.log(productosState);
   }, []);
 
-  /*   const listacategorias = listaCategorias(productos);
-  listacategorias.unshift("Todos");
- */
   return (
     <div id="ItemListContainer">
       <ItemCateg categorias={categorias} />
