@@ -74,7 +74,7 @@ const Cart = () => {
   console.log(carritoVacioState ? "vacio" : "lleno");
 
   return (
-    <div>
+    <div className="container">
       {carritoVacioState ? (
         sinItems()
       ) : (

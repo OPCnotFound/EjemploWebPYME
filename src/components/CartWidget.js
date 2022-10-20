@@ -6,11 +6,8 @@ import { AppContext } from "../app/Provider";
 function CartWidget() {
   const [cartstate, setcartState, userLogstate, setUserLogstate] =
     useContext(AppContext);
-  const [widgetNumber, setwidgetNumber] = useState(0);
-  const cart = cartstate;
-  const widgetIcon = cart.length;
-  console.log(widgetNumber);
-  console.log(widgetIcon);
+
+  const widgetIcon = cartstate.length;
 
   const uiContador = () => {
     return (
@@ -24,7 +21,6 @@ function CartWidget() {
   };
 
   useEffect(() => {
-    setwidgetNumber(widgetIcon);
     console.log("Widget Actualizado");
   }, []);
 

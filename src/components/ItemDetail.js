@@ -83,7 +83,7 @@ function ItemDetail({ index }) {
           <h2>{proDetallada.title}</h2>
           <h3>{proDetallada.price} USD</h3>
           <div id="ReviewStars">
-            <i class="bi bi-star-fill">{proDetallada.rating}</i>
+            <i className="bi bi-star-fill">{proDetallada.rating}</i>
           </div>
           <p className="description">{proDetallada.description}</p>
           <ItemCount

@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../app/Provider";
 
-function ItemCount({ stock, initial, onAdd }) {
+function ItemCount({ stock, initial, onAdd, cart, agregados }) {
+  const [cartstate, setcartState] = useContext(AppContext);
+
   const [itemCantidad, setItemCantidad] = useState(parseInt(initial));
 
   const addCantidad = () => {
@@ -33,9 +36,12 @@ function ItemCount({ stock, initial, onAdd }) {
         className="selectorCantidad__summit"
         onClick={() => {
           onAdd(itemCantidad);
+          setcartState([...cart]);
+          console.log(cart);
         }}
       >
-        Agregar a <i className="bi bi-cart"></i>
+        {agregados === 0 ? "Agregar a " : "Modificar"}{" "}
+        <i className="bi bi-cart"></i>
       </button>
     </div>
   );
